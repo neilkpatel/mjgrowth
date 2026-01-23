@@ -1,0 +1,1063 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MJGrowth | Mollie Garza - Sports + AI + Commerce Growth Advisory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a1628;
+            --secondary: #1e293b;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --gold: #f59e0b;
+            --gold-light: #fbbf24;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --success: #10b981;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Animated Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.08) 0%, transparent 50%),
+                linear-gradient(135deg, var(--primary) 0%, #0f172a 100%);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 22, 40, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--light);
+        }
+
+        .logo span {
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 3rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text h1 .highlight {
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-tagline {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-tagline .divider {
+            color: var(--gold);
+        }
+
+        .hero-bio {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.9rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--primary);
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+        }
+
+        .headshot {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--gold);
+            box-shadow: 0 20px 60px rgba(245, 158, 11, 0.2);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 3rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-title .accent {
+            color: var(--accent);
+        }
+
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+
+        .product-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-card:nth-child(1) .product-icon {
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+        }
+
+        .product-card:nth-child(2) .product-icon {
+            background: linear-gradient(135deg, var(--accent), var(--accent-light));
+        }
+
+        .product-card:nth-child(3) .product-icon {
+            background: linear-gradient(135deg, var(--success), #34d399);
+        }
+
+        .product-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .product-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .product-link {
+            color: var(--accent-light);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Credentials Section */
+        .credentials {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 30px;
+            padding: 3rem;
+            margin-top: 3rem;
+        }
+
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .credential {
+            padding: 1.5rem;
+        }
+
+        .credential-icon {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .credential h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .credential p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Schedule Section */
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .schedule-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .schedule-card:hover {
+            border-color: var(--gold);
+        }
+
+        .schedule-card.next {
+            border-color: var(--gold);
+            background: rgba(245, 158, 11, 0.1);
+        }
+
+        .schedule-date {
+            background: var(--secondary);
+            border-radius: 10px;
+            padding: 0.8rem 1rem;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .schedule-date .month {
+            font-size: 0.75rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .schedule-date .day {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .schedule-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .schedule-info p {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        .next-badge {
+            background: var(--gold);
+            color: var(--primary);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin-left: 0.5rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(245, 158, 11, 0.1));
+            border-radius: 30px;
+            padding: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h3 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info p {
+            color: var(--gray);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--light);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-light);
+        }
+
+        .contact-link-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--secondary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            padding: 0.9rem 1rem;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .form-group select option {
+            background: var(--primary);
+        }
+
+        .submit-btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-light));
+            color: var(--primary);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 3rem;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-light);
+        }
+
+        .copyright {
+            color: var(--gray);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .headshot {
+                width: 280px;
+                height: 280px;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-tagline {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                padding: 1rem 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <nav>
+        <div class="logo">MJ<span>Growth</span></div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#schedule">Schedule</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="https://www.linkedin.com/in/molliegarza/" target="_blank">LinkedIn</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Mollie <span class="highlight">Garza</span></h1>
+                <p class="hero-tagline">
+                    Partnerships & Connector
+                    <span class="divider">|</span>
+                    Sports + AI + Commerce
+                </p>
+                <p class="hero-bio">
+                    First-generation Latina American sales & business development executive with nearly 20 years driving growth for Fortune 100 brands, startups, and everything in between. Former Walmart, Verizon, iHeart.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <div class="stat-value">4x</div>
+                        <div class="stat-label">Startup Exits</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">$1B+</div>
+                        <div class="stat-label">Revenue Generated</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-value">20</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary">Let's Connect</a>
+                    <a href="#services" class="btn btn-secondary">Explore Services</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="mollie_headshot.jpeg" alt="Mollie Garza" class="headshot">
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">Driving <span class="accent">Growth</span> That Matters</h2>
+            <p class="section-subtitle">
+                I move the ball forward between businesses who can problem solve together & become strategic partners.
+            </p>
+        </div>
+
+        <div class="credentials">
+            <div class="credentials-grid">
+                <div class="credential">
+                    <div class="credential-icon">🏆</div>
+                    <h4>BAIN Leadership Academy</h4>
+                    <p>2023 Graduate</p>
+                </div>
+                <div class="credential">
+                    <div class="credential-icon">🎤</div>
+                    <h4>Cannes Lions Moderator</h4>
+                    <p>Panel Host & Speaker</p>
+                </div>
+                <div class="credential">
+                    <div class="credential-icon">🎓</div>
+                    <h4>Top 100 Walton Alumni</h4>
+                    <p>University of Arkansas</p>
+                </div>
+                <div class="credential">
+                    <div class="credential-icon">🌟</div>
+                    <h4>Yes We Cannes</h4>
+                    <p>Co-Founder</p>
+                </div>
+                <div class="credential">
+                    <div class="credential-icon">📊</div>
+                    <h4>Latinos in Sports</h4>
+                    <p>Member</p>
+                </div>
+                <div class="credential">
+                    <div class="credential-icon">💼</div>
+                    <h4>FLO Unleashed</h4>
+                    <p>Advisor</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">How We Can <span class="accent">Work Together</span></h2>
+            <p class="section-subtitle">
+                Three ways to accelerate your growth in sports, commerce, and AI
+            </p>
+        </div>
+
+        <div class="products-grid">
+            <a href="events.html" class="product-card">
+                <div class="product-icon">🎯</div>
+                <h3>Curated Events</h3>
+                <p>
+                    B2B experiential events at the world's biggest stages. From Cannes Lions to CES to the Super Bowl - curated gatherings that create real business connections.
+                </p>
+                <span class="product-link">
+                    Explore Events →
+                </span>
+            </a>
+
+            <a href="business-dev.html" class="product-card">
+                <div class="product-icon">🚀</div>
+                <h3>Business Development</h3>
+                <p>
+                    Strategic partnerships, go-to-market strategy, and net-new revenue. Driving advertising revenue with positioning that works for brands, agencies, and tech partners.
+                </p>
+                <span class="product-link">
+                    Learn More →
+                </span>
+            </a>
+
+            <a href="thought-leadership.html" class="product-card">
+                <div class="product-icon">💡</div>
+                <h3>Thought Leadership</h3>
+                <p>
+                    Panels, speaking engagements, and content that positions you as a leader. From moderating at Cannes Lions to collaborative agency reports.
+                </p>
+                <span class="product-link">
+                    See Examples →
+                </span>
+            </a>
+        </div>
+    </section>
+
+    <section id="schedule" class="section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">Where to <span class="accent">Find Me</span> in 2026</h2>
+            <p class="section-subtitle">
+                Let's connect at one of these events - or bring me to yours
+            </p>
+        </div>
+
+        <div class="schedule-grid">
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Jan</div>
+                    <div class="day">7-10</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>CES 2026 <span style="color: var(--success);">✓ Complete</span></h4>
+                    <p>Las Vegas, NV</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Feb</div>
+                    <div class="day">8</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>Super Bowl LX</h4>
+                    <p>New Orleans, LA</p>
+                </div>
+            </div>
+
+            <div class="schedule-card next">
+                <div class="schedule-date">
+                    <div class="month">Mar</div>
+                    <div class="day">TBD</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>Brand Safety Summit<span class="next-badge">NEXT</span></h4>
+                    <p>Singapore</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Mar</div>
+                    <div class="day">7-15</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>SXSW 2026</h4>
+                    <p>Austin, TX</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Apr</div>
+                    <div class="day">12-16</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>NAB Show</h4>
+                    <p>Las Vegas, NV</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">May</div>
+                    <div class="day">12-16</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>Upfronts Week</h4>
+                    <p>New York, NY</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Jun</div>
+                    <div class="day">16-20</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>Cannes Lions 2026</h4>
+                    <p>Cannes, France</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Jul</div>
+                    <div class="day">TBD</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>ESPY's / NBA Summer League</h4>
+                    <p>Los Angeles / Las Vegas</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Sep</div>
+                    <div class="day">TBD</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>Advertising Week NY</h4>
+                    <p>New York, NY</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Oct</div>
+                    <div class="day">TBD</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>ANA Masters of Marketing</h4>
+                    <p>Orlando, FL</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">Nov</div>
+                    <div class="day">11-14</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>Web Summit</h4>
+                    <p>Lisbon, Portugal</p>
+                </div>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-date">
+                    <div class="month">2026</div>
+                    <div class="day">⚽</div>
+                </div>
+                <div class="schedule-info">
+                    <h4>FIFA World Cup 2026</h4>
+                    <p>USA / Canada / Mexico</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section fade-in">
+        <div class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Let's Build Something Together</h3>
+                    <p>
+                        Whether you're looking to expand partnerships, curate an unforgettable event, or amplify your brand's voice - I'm here to help you grow.
+                    </p>
+                    <div class="contact-links">
+                        <a href="mailto:mollie@mjgrowthconsulting.com" class="contact-link">
+                            <span class="contact-link-icon">✉️</span>
+                            mollie@mjgrowthconsulting.com
+                        </a>
+                        <a href="https://www.linkedin.com/in/molliegarza/" target="_blank" class="contact-link">
+                            <span class="contact-link-icon">💼</span>
+                            linkedin.com/in/molliegarza
+                        </a>
+                        <a href="#" class="contact-link">
+                            <span class="contact-link-icon">📍</span>
+                            Based in New York, NY
+                        </a>
+                    </div>
+                </div>
+
+                <form class="contact-form" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="goal">What are you looking to do? *</label>
+                        <select id="goal" name="goal" required>
+                            <option value="">Select an option...</option>
+                            <option value="events">Host or attend a curated event</option>
+                            <option value="bizdev">Strategic partnerships & business development</option>
+                            <option value="thought-leadership">Speaking, panels, or thought leadership</option>
+                            <option value="advisory">Advisory or consulting engagement</option>
+                            <option value="other">Something else</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="collaboration">How should we collaborate?</label>
+                        <textarea id="collaboration" name="collaboration" placeholder="Tell me more about your goals and how I can help..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-logo">MJ<span>Growth</span></div>
+        <div class="footer-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#contact">Contact</a>
+            <a href="https://www.linkedin.com/in/molliegarza/" target="_blank">LinkedIn</a>
+        </div>
+        <p class="copyright">© 2026 MJGrowth Consulting. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Form submission
+        function handleSubmit(e) {
+            e.preventDefault();
+            const formData = new FormData(e.target);
+            const data = Object.fromEntries(formData);
+
+            // Create mailto link with form data
+            const subject = encodeURIComponent(`MJGrowth Inquiry from ${data.firstName} ${data.lastName}`);
+            const body = encodeURIComponent(
+                `Name: ${data.firstName} ${data.lastName}\n` +
+                `Company: ${data.company}\n` +
+                `Looking to: ${data.goal}\n\n` +
+                `Message:\n${data.collaboration}`
+            );
+
+            window.location.href = `mailto:mollie@mjgrowthconsulting.com?subject=${subject}&body=${body}`;
+
+            alert('Opening your email client to send the message!');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
