@@ -42,6 +42,10 @@
             box-sizing: border-box;
         }
 
+        html, body {
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: var(--primary);
@@ -738,6 +742,27 @@
 
             .section {
                 padding: 3rem 1.5rem;
+            }
+
+            .contact-section {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .contact-info h3 {
+                font-size: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                gap: 1rem;
             }
 
             body.menu-open {
