@@ -832,15 +832,19 @@
                 display: flex;
             }
 
+            .logo img {
+                height: 48px;
+            }
+
             .hero {
                 min-height: auto;
-                padding: 7rem 2rem 4rem;
+                padding: 6rem 1.5rem 3rem;
             }
 
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: left;
-                gap: 3rem;
+                gap: 2rem;
             }
 
             .hero-image {
@@ -849,25 +853,40 @@
 
             .headshot {
                 width: 100%;
-                max-width: 320px;
-                height: 380px;
+                max-width: 280px;
+                height: 340px;
             }
 
             .hero-text h1 {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
 
             .hero-tagline {
                 justify-content: flex-start;
+                font-size: 0.75rem;
+            }
+
+            .hero-bio {
+                font-size: 1rem;
             }
 
             .hero-stats {
                 justify-content: flex-start;
-                gap: 2rem;
+                gap: 1.5rem;
+            }
+
+            .stat-value {
+                font-size: 2.2rem;
             }
 
             .hero-buttons {
-                justify-content: flex-start;
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
             }
 
             .section-header {
@@ -875,7 +894,7 @@
             }
 
             .section-title {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
             .products-grid {
@@ -884,24 +903,34 @@
 
             .product-card {
                 border-right: none;
-                padding: 2rem 0;
+                padding: 1.5rem 0;
             }
 
             .product-card:last-child {
                 border-bottom: none;
             }
 
-            .schedule-grid {
-                grid-template-columns: 1fr 1fr;
+            .product-icon {
+                font-size: 2rem;
+                margin-bottom: 1rem;
             }
 
-            .schedule-card:nth-child(2n) {
+            .product-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .schedule-card {
                 border-right: none;
+                padding: 1.5rem;
             }
 
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2.5rem;
             }
 
             .form-row {
@@ -909,7 +938,7 @@
             }
 
             nav {
-                padding: 1rem 2rem;
+                padding: 0.75rem 1.5rem;
             }
 
             .nav-links {
@@ -917,15 +946,15 @@
             }
 
             .section {
-                padding: 3rem 2rem;
+                padding: 2.5rem 1.5rem;
             }
 
             .contact-section {
-                padding: 3rem 2rem;
+                padding: 2rem 1.5rem;
             }
 
             .contact-info h3 {
-                font-size: 2rem;
+                font-size: 1.75rem;
             }
 
             .credentials {
@@ -937,7 +966,16 @@
             }
 
             .credential {
-                padding: 2rem 1.5rem;
+                padding: 1.5rem 1rem;
+            }
+
+            .credential-icon {
+                font-size: 1.4rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .credential h4 {
+                font-size: 1rem;
             }
 
             .credential:nth-child(3n) {
@@ -961,11 +999,21 @@
             .form-group select {
                 width: 100%;
                 max-width: 100%;
+                font-size: 16px; /* Prevents iOS zoom on focus */
+            }
+
+            .submit-btn {
+                width: 100%;
+            }
+
+            .footer-logo img {
+                height: 56px;
             }
 
             .footer-links {
                 flex-wrap: wrap;
-                gap: 1.5rem;
+                gap: 1rem 1.5rem;
+                font-size: 0.75rem;
             }
 
             body.menu-open {
@@ -973,21 +1021,51 @@
             }
         }
 
-        @media (max-width: 600px) {
-            .schedule-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .schedule-card {
-                border-right: none;
-            }
-
+        @media (max-width: 480px) {
             .hero-text h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
+            }
+
+            .hero-tagline {
+                font-size: 0.7rem;
+                gap: 0.5rem;
             }
 
             .stat-value {
-                font-size: 2.2rem;
+                font-size: 1.8rem;
+            }
+
+            .stat-label {
+                font-size: 0.65rem;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .credential {
+                border-right: none !important;
+                border-bottom: 1px solid var(--gray-800);
+            }
+
+            .credential:last-child {
+                border-bottom: none;
+            }
+
+            .schedule-date .day {
+                font-size: 1.5rem;
+            }
+
+            .schedule-info h4 {
+                font-size: 1rem;
+            }
+
+            .contact-info h3 {
+                font-size: 1.5rem;
             }
         }
 
