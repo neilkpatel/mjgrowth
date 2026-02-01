@@ -449,16 +449,15 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 0;
-            border: 1px solid var(--gray-200);
         }
 
         .schedule-card {
             background: transparent;
             border-radius: 0;
             padding: 2rem;
-            border: none;
-            border-right: 1px solid var(--gray-200);
-            border-bottom: 1px solid var(--gray-200);
+            border: 1px solid var(--gray-200);
+            margin-top: -1px;
+            margin-left: -1px;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
@@ -466,12 +465,12 @@
             transition: all 0.3s;
         }
 
-        .schedule-card:nth-child(4n) {
-            border-right: none;
+        .schedule-card:nth-child(-n+4) {
+            margin-top: 0;
         }
 
-        .schedule-card:nth-child(n+5) {
-            border-bottom: none;
+        .schedule-card:nth-child(4n+1) {
+            margin-left: 0;
         }
 
         @media (hover: hover) {
@@ -924,7 +923,7 @@
             }
 
             .schedule-card {
-                border-right: none;
+                margin-left: 0;
                 padding: 1.5rem;
             }
 
