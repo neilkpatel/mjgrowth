@@ -73,15 +73,13 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: var(--black);
-            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
         }
 
-        .logo span {
-            color: var(--black);
+        .logo img {
+            height: 32px;
+            width: auto;
         }
 
         .nav-links {
@@ -699,15 +697,12 @@
         }
 
         .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            font-weight: 600;
             margin-bottom: 2rem;
-            letter-spacing: -0.02em;
         }
 
-        .footer-logo span {
-            color: var(--black);
+        .footer-logo img {
+            height: 40px;
+            width: auto;
         }
 
         .footer-links {
@@ -1013,7 +1008,7 @@
     <div class="bg-pattern"></div>
 
     <nav>
-        <div class="logo">MJ<span>Growth</span></div>
+        <a href="#" class="logo"><img src="logo-dark.png" alt="MJGrowth"></a>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
@@ -1312,7 +1307,7 @@
     </section>
 
     <footer>
-        <div class="footer-logo">MJ<span>Growth</span></div>
+        <div class="footer-logo"><img src="logo-dark.png" alt="MJGrowth"></div>
         <div class="footer-links">
             <a href="#about">About</a>
             <a href="#services">Services</a>
