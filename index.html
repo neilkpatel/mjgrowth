@@ -991,6 +991,134 @@
             }
         }
 
+        /* Carousel */
+        .carousel-section {
+            padding: 0;
+            max-width: 100%;
+            overflow: hidden;
+            background: var(--black);
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+            z-index: 10;
+        }
+
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            padding: 0;
+        }
+
+        .carousel-dot:hover {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .carousel-dot.active {
+            background: var(--white);
+            transform: scale(1.2);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--black);
+            transition: background 0.3s, transform 0.3s;
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-nav.prev {
+            left: 1.5rem;
+        }
+
+        .carousel-nav.next {
+            right: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .carousel {
+                aspect-ratio: 4 / 3;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+            }
+
+            .carousel-nav.prev {
+                left: 1rem;
+            }
+
+            .carousel-nav.next {
+                right: 1rem;
+            }
+
+            .carousel-dots {
+                bottom: 1rem;
+            }
+
+            .carousel-dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
         /* Animations */
         .fade-in {
             opacity: 0;
@@ -1065,6 +1193,23 @@
             <div class="hero-image">
                 <img src="mollie_headshot.jpeg" alt="Mollie Garza" class="headshot">
             </div>
+        </div>
+    </section>
+
+    <!-- Photo Carousel -->
+    <section class="carousel-section">
+        <div class="carousel" id="carousel">
+            <div class="carousel-track" id="carouselTrack">
+                <div class="carousel-slide"><img src="carousel-1.jpg" alt="Mollie Garza at event"></div>
+                <div class="carousel-slide"><img src="carousel-2.jpg" alt="Mollie Garza speaking"></div>
+                <div class="carousel-slide"><img src="carousel-3.jpg" alt="Mollie Garza at conference"></div>
+                <div class="carousel-slide"><img src="carousel-4.jpg" alt="Mollie Garza networking"></div>
+                <div class="carousel-slide"><img src="carousel-5.jpg" alt="Mollie Garza presenting"></div>
+                <div class="carousel-slide"><img src="carousel-6.jpg" alt="Mollie Garza at summit"></div>
+            </div>
+            <button class="carousel-nav prev" aria-label="Previous slide">&#8592;</button>
+            <button class="carousel-nav next" aria-label="Next slide">&#8594;</button>
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
     </section>
 
@@ -1349,6 +1494,98 @@
                 }
             });
         });
+
+        // Carousel
+        (function() {
+            const track = document.getElementById('carouselTrack');
+            const slides = track.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.getElementById('carouselDots');
+            const prevBtn = document.querySelector('.carousel-nav.prev');
+            const nextBtn = document.querySelector('.carousel-nav.next');
+            const carousel = document.getElementById('carousel');
+
+            let currentIndex = 0;
+            let autoplayInterval;
+            const autoplayDelay = 5000;
+
+            // Create dots
+            slides.forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (i === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+                dot.addEventListener('click', () => goToSlide(i));
+                dotsContainer.appendChild(dot);
+            });
+
+            const dots = dotsContainer.querySelectorAll('.carousel-dot');
+
+            function updateCarousel() {
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            function goToSlide(index) {
+                currentIndex = index;
+                updateCarousel();
+                resetAutoplay();
+            }
+
+            function nextSlide() {
+                currentIndex = (currentIndex + 1) % slides.length;
+                updateCarousel();
+            }
+
+            function prevSlide() {
+                currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+                updateCarousel();
+            }
+
+            function startAutoplay() {
+                autoplayInterval = setInterval(nextSlide, autoplayDelay);
+            }
+
+            function stopAutoplay() {
+                clearInterval(autoplayInterval);
+            }
+
+            function resetAutoplay() {
+                stopAutoplay();
+                startAutoplay();
+            }
+
+            // Event listeners
+            nextBtn.addEventListener('click', () => { nextSlide(); resetAutoplay(); });
+            prevBtn.addEventListener('click', () => { prevSlide(); resetAutoplay(); });
+
+            // Pause on hover
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+
+            // Touch/swipe support
+            let touchStartX = 0;
+            let touchEndX = 0;
+
+            carousel.addEventListener('touchstart', (e) => {
+                touchStartX = e.changedTouches[0].screenX;
+                stopAutoplay();
+            }, { passive: true });
+
+            carousel.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) nextSlide();
+                    else prevSlide();
+                }
+                startAutoplay();
+            }, { passive: true });
+
+            // Start autoplay
+            startAutoplay();
+        })();
     </script>
 </body>
 </html>
