@@ -221,21 +221,23 @@
             color: var(--white);
         }
 
-        .btn-primary:hover {
-            background: var(--gray-800);
-            transform: none;
-            box-shadow: none;
+        @media (hover: hover) {
+            .btn-primary:hover {
+                background: var(--gray-800);
+                transform: translateY(-1px);
+            }
+
+            .btn-secondary:hover {
+                background: var(--black);
+                color: var(--white);
+                transform: translateY(-1px);
+            }
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--black);
             border: 1px solid var(--black);
-        }
-
-        .btn-secondary:hover {
-            background: var(--black);
-            color: var(--white);
         }
 
         .hero-image {
@@ -251,6 +253,14 @@
             object-position: center top;
             border: none;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        @media (hover: hover) {
+            .headshot:hover {
+                transform: scale(1.02);
+                box-shadow: 0 25px 70px rgba(0, 0, 0, 0.15);
+            }
         }
 
         /* Section Styles */
@@ -283,7 +293,7 @@
         .section-subtitle {
             color: var(--gray-600);
             font-size: 1.05rem;
-            max-width: 500px;
+            max-width: 600px;
             line-height: 1.8;
         }
 
@@ -312,11 +322,15 @@
             border-right: none;
         }
 
-        .product-card:hover {
-            transform: none;
-            border-color: var(--gray-200);
-            box-shadow: none;
-            background: var(--gray-100);
+        @media (hover: hover) {
+            .product-card:hover {
+                background: var(--gray-100);
+                transform: translateY(-2px);
+            }
+
+            .product-card:hover h3 {
+                color: var(--gray-800);
+            }
         }
 
         .product-card:last-child {
@@ -362,37 +376,54 @@
         .credentials {
             background: var(--black);
             border-radius: 0;
-            padding: 4rem;
+            padding: 0;
             margin-top: 4rem;
         }
 
         .credentials-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
             text-align: left;
         }
 
         .credential {
-            padding: 0;
+            padding: 2.5rem;
+            border-right: 1px solid var(--gray-800);
+            border-bottom: 1px solid var(--gray-800);
+            transition: background 0.3s ease;
+        }
+
+        .credential:nth-child(3n) {
+            border-right: none;
+        }
+
+        .credential:nth-child(n+4) {
+            border-bottom: none;
+        }
+
+        @media (hover: hover) {
+            .credential:hover {
+                background: var(--gray-800);
+            }
         }
 
         .credential-icon {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
         }
 
         .credential h4 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            margin-bottom: 0.4rem;
+            font-size: 1.15rem;
+            margin-bottom: 0.5rem;
             color: var(--white);
             font-weight: 500;
         }
 
         .credential p {
             color: var(--gray-400);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.08em;
         }
@@ -427,17 +458,21 @@
             border-bottom: none;
         }
 
-        .schedule-card:hover {
-            background: var(--gray-100);
+        @media (hover: hover) {
+            .schedule-card:hover {
+                background: var(--gray-100);
+                transform: translateY(-2px);
+            }
+
+            .schedule-card.next:hover {
+                background: var(--gray-800);
+                transform: translateY(-2px);
+            }
         }
 
         .schedule-card.next {
             background: var(--black);
             color: var(--white);
-        }
-
-        .schedule-card.next:hover {
-            background: var(--gray-800);
         }
 
         .schedule-date {
@@ -863,7 +898,31 @@
             }
 
             .credentials {
-                padding: 3rem 2rem;
+                padding: 0;
+            }
+
+            .credentials-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .credential {
+                padding: 2rem 1.5rem;
+            }
+
+            .credential:nth-child(3n) {
+                border-right: 1px solid var(--gray-800);
+            }
+
+            .credential:nth-child(2n) {
+                border-right: none;
+            }
+
+            .credential:nth-child(n+4) {
+                border-bottom: 1px solid var(--gray-800);
+            }
+
+            .credential:nth-child(n+5) {
+                border-bottom: none;
             }
 
             .form-group input,
