@@ -993,19 +993,18 @@
 
         /* Carousel */
         .carousel-section {
-            padding: 0;
-            max-width: 100%;
+            padding: 4rem 4rem;
+            max-width: 1400px;
+            margin: 0 auto;
             overflow: hidden;
-            background: var(--black);
         }
 
         .carousel {
             position: relative;
             width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            aspect-ratio: 16 / 9;
+            aspect-ratio: 21 / 9;
             overflow: hidden;
+            border-radius: 0;
         }
 
         .carousel-track {
@@ -1091,26 +1090,30 @@
         }
 
         @media (max-width: 768px) {
+            .carousel-section {
+                padding: 2rem;
+            }
+
             .carousel {
-                aspect-ratio: 4 / 3;
+                aspect-ratio: 16 / 9;
             }
 
             .carousel-nav {
-                width: 40px;
-                height: 40px;
-                font-size: 1rem;
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
             }
 
             .carousel-nav.prev {
-                left: 1rem;
+                left: 0.75rem;
             }
 
             .carousel-nav.next {
-                right: 1rem;
+                right: 0.75rem;
             }
 
             .carousel-dots {
-                bottom: 1rem;
+                bottom: 0.75rem;
             }
 
             .carousel-dot {
