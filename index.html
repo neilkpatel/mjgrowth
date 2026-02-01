@@ -98,10 +98,28 @@
             letter-spacing: 0.02em;
             text-transform: uppercase;
             transition: color 0.3s;
+            position: relative;
         }
 
-        .nav-links a:hover {
-            color: var(--black);
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--black);
+            transition: width 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .nav-links a:hover {
+                color: var(--black);
+            }
+
+            .nav-links a:hover::after {
+                width: 100%;
+            }
         }
 
         /* Hero Section */
@@ -706,10 +724,28 @@
             transition: color 0.3s;
             text-transform: uppercase;
             letter-spacing: 0.08em;
+            position: relative;
         }
 
-        .footer-links a:hover {
-            color: var(--black);
+        .footer-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--black);
+            transition: width 0.3s ease;
+        }
+
+        @media (hover: hover) {
+            .footer-links a:hover {
+                color: var(--black);
+            }
+
+            .footer-links a:hover::after {
+                width: 100%;
+            }
         }
 
         .copyright {
