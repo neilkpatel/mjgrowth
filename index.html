@@ -106,10 +106,10 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: auto;
             display: flex;
             align-items: center;
-            padding: 8rem 4rem 4rem;
+            padding: 8rem 4rem 5rem;
             max-width: 1400px;
             margin: 0 auto;
         }
@@ -244,18 +244,13 @@
         }
 
         .headshot {
-            width: 420px;
-            height: 520px;
+            width: 400px;
+            height: 480px;
             border-radius: 0;
             object-fit: cover;
+            object-position: center top;
             border: none;
-            box-shadow: none;
-            filter: grayscale(100%);
-            transition: filter 0.5s ease;
-        }
-
-        .headshot:hover {
-            filter: grayscale(0%);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
         }
 
         /* Section Styles */
@@ -303,7 +298,7 @@
         .product-card {
             background: transparent;
             border-radius: 0;
-            padding: 3rem 2.5rem 3rem 0;
+            padding: 2.5rem;
             border: none;
             border-bottom: 1px solid var(--gray-200);
             border-right: 1px solid var(--gray-200);
@@ -322,6 +317,10 @@
             border-color: var(--gray-200);
             box-shadow: none;
             background: var(--gray-100);
+        }
+
+        .product-card:last-child {
+            border-bottom: 1px solid var(--gray-200);
         }
 
         .product-icon {
@@ -381,7 +380,6 @@
         .credential-icon {
             font-size: 1.5rem;
             margin-bottom: 1rem;
-            filter: grayscale(100%);
         }
 
         .credential h4 {
@@ -425,7 +423,7 @@
             border-right: none;
         }
 
-        .schedule-card:nth-last-child(-n+4) {
+        .schedule-card:nth-child(n+5) {
             border-bottom: none;
         }
 
@@ -552,12 +550,12 @@
         .contact-link-icon {
             width: 36px;
             height: 36px;
-            background: var(--black);
+            background: var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: grayscale(100%) invert(100%);
+            font-size: 1rem;
         }
 
         .contact-form {
@@ -785,8 +783,8 @@
 
             .headshot {
                 width: 100%;
-                max-width: 350px;
-                height: 400px;
+                max-width: 320px;
+                height: 380px;
             }
 
             .hero-text h1 {
@@ -821,6 +819,10 @@
             .product-card {
                 border-right: none;
                 padding: 2rem 0;
+            }
+
+            .product-card:last-child {
+                border-bottom: none;
             }
 
             .schedule-grid {
@@ -1070,7 +1072,7 @@
                     <div class="day">7-10</div>
                 </div>
                 <div class="schedule-info">
-                    <h4>CES 2026 <span style="color: var(--success);">✓ Complete</span></h4>
+                    <h4>CES 2026 <span style="color: var(--gray-400);">✓</span></h4>
                     <p>Las Vegas, NV</p>
                 </div>
             </div>
