@@ -1644,6 +1644,7 @@
             }
 
             function startAutoplay() {
+                clearInterval(autoplayInterval);
                 autoplayInterval = setInterval(nextSlide, autoplayDelay);
             }
 
