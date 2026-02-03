@@ -1560,10 +1560,13 @@
             <a href="#contact">Contact</a>
             <a href="https://www.linkedin.com/in/molliegarza/" target="_blank">LinkedIn</a>
         </div>
-        <p class="copyright">© 2026 MJGrowth Consulting. All rights reserved.</p>
+        <p class="copyright">© <span id="currentYear"></span> MJGrowth Consulting. All rights reserved.</p>
     </footer>
 
     <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
         // Mobile menu toggle
         function toggleMenu() {
             const hamburger = document.querySelector('.hamburger');
