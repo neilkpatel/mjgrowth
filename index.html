@@ -1528,17 +1528,17 @@
                         <label for="goal">What are you looking to do? *</label>
                         <select id="goal" name="goal" required>
                             <option value="">Select an option...</option>
-                            <option value="events">Host or attend a curated event</option>
-                            <option value="bizdev">Strategic partnerships & business development</option>
-                            <option value="thought-leadership">Speaking, panels, or thought leadership</option>
-                            <option value="advisory">Advisory or consulting engagement</option>
+                            <option value="consulting">Consulting Engagement (Retainer Model)</option>
+                            <option value="advisory">Board Advisory</option>
+                            <option value="speaking">Speaking Opportunity</option>
+                            <option value="events">Host or Sponsor an Event</option>
                             <option value="other">Something else</option>
                         </select>
                     </div>
 
                     <div class="form-group">
-                        <label for="collaboration">How should we collaborate?</label>
-                        <textarea id="collaboration" name="collaboration" placeholder="Tell me more about your goals and how I can help..."></textarea>
+                        <label for="collaboration">How should we collaborate? *</label>
+                        <textarea id="collaboration" name="collaboration" placeholder="Tell me more about your goals and how I can help..." required minlength="20"></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">Send Message</button>
