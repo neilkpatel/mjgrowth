@@ -1539,6 +1539,7 @@
                     <div class="form-group">
                         <label for="collaboration">How should we collaborate? * <span style="font-weight: 400; color: var(--gray-400);">(min. 20 characters)</span></label>
                         <textarea id="collaboration" name="collaboration" placeholder="Tell me more about your goals and how I can help..." required minlength="20"></textarea>
+                        <div id="charCount" style="font-size: 0.75rem; color: var(--gray-400); margin-top: 0.5rem;">0 / 20 characters</div>
                     </div>
 
                     <button type="submit" class="submit-btn">Send Message</button>
@@ -1682,6 +1683,22 @@
             // Start autoplay
             startAutoplay();
         })();
+
+        // Character counter
+        const textarea = document.getElementById('collaboration');
+        const charCount = document.getElementById('charCount');
+        const minChars = 20;
+
+        textarea.addEventListener('input', function() {
+            const current = this.value.length;
+            if (current < minChars) {
+                charCount.textContent = `${current} / ${minChars} characters`;
+                charCount.style.color = 'var(--gray-400)';
+            } else {
+                charCount.textContent = `${current} characters ✓`;
+                charCount.style.color = 'var(--gray-600)';
+            }
+        });
     </script>
 </body>
 </html>
