@@ -1545,8 +1545,12 @@
                     </div>
 
                     <button type="submit" class="submit-btn">Send Message</button>
-                    <div id="formMessage" style="display: none; margin-top: 1rem; padding: 1rem; font-size: 0.9rem;"></div>
                 </form>
+                <div id="formSuccess" style="display: none; text-align: center; padding: 4rem 2rem;">
+                    <div style="font-size: 4rem; margin-bottom: 1.5rem;">✓</div>
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">Message Sent</h3>
+                    <p style="color: var(--gray-600); font-size: 1rem;">Thanks for reaching out. I'll be in touch soon.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -1710,7 +1714,7 @@
         // Form submission
         const form = document.querySelector('.contact-form');
         const submitBtn = form.querySelector('.submit-btn');
-        const formMessage = document.getElementById('formMessage');
+        const formSuccess = document.getElementById('formSuccess');
 
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -1726,25 +1730,25 @@
                 });
 
                 if (response.ok) {
-                    formMessage.style.display = 'block';
-                    formMessage.style.background = 'var(--black)';
-                    formMessage.style.color = 'var(--white)';
-                    formMessage.textContent = "Thanks for reaching out! I'll be in touch soon.";
-                    form.reset();
-                    charCount.textContent = '0 / 20 characters';
-                    charCount.style.color = 'var(--gray-400)';
+                    form.style.transition = 'opacity 0.4s ease';
+                    form.style.opacity = '0';
+                    setTimeout(() => {
+                        form.style.display = 'none';
+                        formSuccess.style.display = 'block';
+                        formSuccess.style.opacity = '0';
+                        formSuccess.style.transition = 'opacity 0.4s ease';
+                        setTimeout(() => {
+                            formSuccess.style.opacity = '1';
+                        }, 50);
+                    }, 400);
                 } else {
                     throw new Error('Form submission failed');
                 }
             } catch (error) {
-                formMessage.style.display = 'block';
-                formMessage.style.background = '#fee';
-                formMessage.style.color = '#c00';
-                formMessage.textContent = 'Something went wrong. Please try again or email directly.';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+                alert('Something went wrong. Please try again or email directly.');
             }
-
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
         });
     </script>
 </body>
