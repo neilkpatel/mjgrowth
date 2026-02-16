@@ -79,3 +79,15 @@ Use this section to capture decisions, context, or notes during work sessions.
 - Updated headshot from `mollie_headshot.jpeg` to `mollie_headshot_2.jpg`
 - Deployed to Vercel via CLI
 - Confirmed custom domain `mjgrowthconsulting.com` is working
+
+### Feb 16, 2026
+- Removed NBA All-Star Weekend and Brand Safety Summit from schedule
+- Made schedule **dynamic** - auto-highlights next upcoming event based on current date
+  - Past events get checkmark ✓
+  - Next upcoming event gets NEXT badge + black styling
+  - Uses `data-date` attributes on schedule cards
+- **Performance optimizations** (Lighthouse audit):
+  - Compressed carousel images: 12.7MB → 3MB (76% reduction)
+  - Made Google Fonts load async (non-blocking)
+  - Performance score: 66 → 74
+- Learned: Lighthouse CLI for auditing, `git revert` vs `git reset --hard`
