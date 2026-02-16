@@ -22,7 +22,11 @@
     <meta name="twitter:description" content="Sports + AI + Commerce Growth Advisory. 20 years driving growth for Fortune 100 brands.">
     <meta name="twitter:image" content="mollie_headshot_2.jpg">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Load fonts async to prevent render blocking -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <style>
         :root {
             --black: #0a0a0a;
