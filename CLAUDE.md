@@ -14,7 +14,28 @@ Marketing/advisory website for **Mollie Jane Garza** - a first-generation Latina
 ## Tech Stack
 - Single-page HTML/CSS/JS
 - Hosted on Vercel
-- Git version controlled
+- Git version controlled (GitHub)
+
+---
+
+## Version Control & Deployment
+
+**Repo:** https://github.com/neilkpatel/mjgrowth
+
+**Workflow:**
+1. Make changes
+2. `git add <files> && git commit -m "message"`
+3. `git push`
+4. `vercel --prod --force`
+
+**To revert:**
+```bash
+git reset --hard <commit-hash>
+git push --force
+vercel --prod --force
+```
+
+**View recent commits:** `git log --oneline -10`
 
 ---
 
@@ -60,8 +81,11 @@ Marketing/advisory website for **Mollie Jane Garza** - a first-generation Latina
 
 ## Current State
 - Site is live and functional
-- Form submits successfully
-- Carousel working with 9 images
+- Form submits via **Formspree** (endpoint: `https://formspree.io/f/xzdeaodb`)
+- Carousel working with 9 images (compressed, ~300KB each)
+- **Schedule is dynamic** - auto-highlights next event based on current date
+  - Uses `data-date` attributes on `.schedule-card` elements
+  - Past events get ✓, next upcoming gets NEXT badge
 
 ---
 
