@@ -1383,29 +1383,29 @@
         </div>
 
         <div class="schedule-grid">
-            <div class="schedule-card">
+            <div class="schedule-card" data-date="2026-01-09">
                 <div class="schedule-date">
                     <div class="month">Jan</div>
                     <div class="day">6-9</div>
                 </div>
                 <div class="schedule-info">
-                    <h4>CES 2026 <span style="color: var(--gray-400);">✓</span></h4>
+                    <h4>CES 2026</h4>
                     <p>Las Vegas, NV</p>
                 </div>
             </div>
 
-            <div class="schedule-card next">
+            <div class="schedule-card" data-date="2026-02-08">
                 <div class="schedule-date">
                     <div class="month">Feb</div>
                     <div class="day">8</div>
                 </div>
                 <div class="schedule-info">
-                    <h4>Super Bowl LX<span class="next-badge">NEXT</span></h4>
+                    <h4>Super Bowl LX</h4>
                     <p>Santa Clara, CA</p>
                 </div>
             </div>
 
-            <div class="schedule-card">
+            <div class="schedule-card" data-date="2026-03-15">
                 <div class="schedule-date">
                     <div class="month">Mar</div>
                     <div class="day">TBD</div>
@@ -1416,7 +1416,7 @@
                 </div>
             </div>
 
-            <div class="schedule-card">
+            <div class="schedule-card" data-date="2026-06-26">
                 <div class="schedule-date">
                     <div class="month">Jun</div>
                     <div class="day">22-26</div>
@@ -1427,7 +1427,7 @@
                 </div>
             </div>
 
-            <div class="schedule-card">
+            <div class="schedule-card" data-date="2026-07-19">
                 <div class="schedule-date">
                     <div class="month">Jun-Jul</div>
                     <div class="day">11-19</div>
@@ -1438,7 +1438,7 @@
                 </div>
             </div>
 
-            <div class="schedule-card">
+            <div class="schedule-card" data-date="2026-10-15">
                 <div class="schedule-date">
                     <div class="month">Oct</div>
                     <div class="day">TBD</div>
@@ -1728,6 +1728,41 @@
                 alert('Something went wrong. Please try again or email directly.');
             }
         });
+
+        // Dynamic schedule highlighting
+        function updateSchedule() {
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const cards = document.querySelectorAll('.schedule-card[data-date]');
+            let nextEventFound = false;
+
+            cards.forEach(card => {
+                const eventDate = new Date(card.dataset.date);
+                const h4 = card.querySelector('h4');
+                const eventName = h4.textContent.replace(' ✓', '').replace(/NEXT$/, '').trim();
+
+                // Remove existing classes and badges
+                card.classList.remove('next', 'past');
+
+                if (eventDate < today) {
+                    // Past event - add checkmark
+                    h4.innerHTML = eventName + ' <span style="color: var(--gray-400);">✓</span>';
+                    card.classList.add('past');
+                } else if (!nextEventFound) {
+                    // Next upcoming event
+                    h4.innerHTML = eventName + '<span class="next-badge">NEXT</span>';
+                    card.classList.add('next');
+                    nextEventFound = true;
+                } else {
+                    // Future event (not next)
+                    h4.innerHTML = eventName;
+                }
+            });
+        }
+
+        // Run on page load
+        updateSchedule();
     </script>
 </body>
 </html>
