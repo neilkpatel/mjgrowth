@@ -5,7 +5,9 @@ Marketing/advisory website for **Mollie Jane Garza** - a first-generation Latina
 
 **Focus areas:** Sports + AI + Commerce Growth Advisory
 
-**Live site:** https://mjgrowth.vercel.app
+**Context:** Neil is building this site for Mollie (a friend) to help potential clients understand who she is and what she offers.
+
+**Live site:** https://mjgrowthconsulting.com (also: mjgrowth.vercel.app)
 
 ---
 
@@ -19,7 +21,7 @@ Marketing/advisory website for **Mollie Jane Garza** - a first-generation Latina
 ## Key Files
 - `index.html` - Main (and only) page
 - `carousel-1.jpg` through `carousel-9.jpg` - Hero carousel images
-- `mollie_headshot.jpeg` - Profile photo
+- `mollie_headshot_2.jpg` - Profile photo
 - `mollie_panel.jpeg` - Speaking/panel photo
 - `logo-dark.png` / `logo-light.png` - Brand logos
 
@@ -74,3 +76,6 @@ Use this section to capture decisions, context, or notes during work sessions.
 ### Feb 3, 2026
 - Reviewed project structure and git history to rebuild context
 - Created this CLAUDE.md file for future session continuity
+- Updated headshot from `mollie_headshot.jpeg` to `mollie_headshot_2.jpg`
+- Deployed to Vercel via CLI
+- Confirmed custom domain `mjgrowthconsulting.com` is working
