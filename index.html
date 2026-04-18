@@ -320,7 +320,7 @@
         /* Products Grid */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 0;
             border-top: 1px solid var(--gray-200);
         }
@@ -338,7 +338,7 @@
             display: block;
         }
 
-        .product-card:nth-child(4) {
+        .product-card:last-child {
             border-right: none;
         }
 
@@ -1409,7 +1409,7 @@
             <h2 class="section-title">How We Can <span class="accent">Work Together</span></h2>
         </div>
 
-        <div class="products-grid" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="products-grid">
             <div class="product-card">
                 <div class="product-icon">🏢</div>
                 <h3>Enterprise Leadership</h3>
@@ -1434,7 +1434,7 @@
                 </p>
             </div>
 
-            <div class="product-card" style="border-right: none;">
+            <div class="product-card">
                 <div class="product-icon">🌐</div>
                 <h3>Ecosystem Development</h3>
                 <p>
